@@ -32,7 +32,6 @@ export default function Home() {
 		}
 	};
 
-	// Reset form state after showing success/error
 	const handleInputChange = () => {
 		if (formState === "success" || formState === "error") {
 			setFormState("idle");
@@ -41,13 +40,9 @@ export default function Home() {
 
 	return (
 		<div className="h-screen bg-black overflow-hidden">
-			{/* Main Grid Container - Two Columns */}
 			<div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] h-full">
-				{/* Left Column - Lanyard Component + Introduction */}
 				<div className="bg-black border border-white/20 relative overflow-hidden flex flex-col">
-					{/* Social Links - Top Left Corner */}
 					<div className="absolute top-4 left-4 z-10 flex gap-2">
-						{/* LinkedIn */}
 						<a
 							href="https://www.linkedin.com/in/askia-james-manjares-33232324b/"
 							target="_blank"
@@ -60,7 +55,6 @@ export default function Home() {
 							</div>
 						</a>
 
-						{/* GitHub */}
 						<a
 							href="https://github.com/AskiaDev"
 							target="_blank"
@@ -77,7 +71,6 @@ export default function Home() {
 							</div>
 						</a>
 
-						{/* Resume */}
 						{/* <a
 							href="#"
 							className="group w-10 h-10 bg-gradient-to-br from-purple-900/40 to-purple-800/20 border border-purple-500/30 rounded-lg flex items-center justify-center hover:border-purple-400/50 transition-all duration-300 hover:bg-purple-900/50 backdrop-blur-sm"
@@ -100,7 +93,6 @@ export default function Home() {
 						</a> */}
 					</div>
 
-					{/* Lanyard Container - 3/4 height */}
 					<div className="flex-[3] relative overflow-hidden">
 						<Lanyard
 							position={[0, 0, 20]}
@@ -112,7 +104,6 @@ export default function Home() {
 						/>
 					</div>
 
-					{/* Introduction Section - 1/4 height */}
 					<div className="flex-1 p-6 border-t border-white/20 bg-black/90 backdrop-blur-sm min-h-0">
 						<div className="space-y-3">
 							<h1 className="text-2xl font-bold text-white">
@@ -149,9 +140,7 @@ export default function Home() {
 					</div>
 				</div>
 
-				{/* Right Column - Two Stacked Sections */}
 				<div className="grid grid-rows-[2fr_1fr] h-full min-h-0">
-					{/* Top Section - Work & Experience */}
 					<div className="bg-black border border-white/20 p-6 overflow-y-auto min-h-0">
 						<h2 className="text-xl font-semibold mb-6 text-white flex items-center gap-2">
 							<div className="w-2 h-2 bg-blue-500 rounded-full"></div>
@@ -159,9 +148,7 @@ export default function Home() {
 						</h2>
 
 						<div className="space-y-6">
-							{/* Experience Item 1 - TristynTech with Tree Structure */}
 							<div className="border-l-2 border-blue-500/30 pl-4 space-y-4">
-								{/* Company Header */}
 								<div className="flex justify-between items-start">
 									<div>
 										<h3 className="text-white font-medium text-lg">
@@ -176,7 +163,6 @@ export default function Home() {
 									</span>
 								</div>
 
-								{/* Lead Software Engineer - Current Role */}
 								<div className="ml-4 border-l-2 border-green-500/40 pl-4 space-y-3">
 									<div className="flex justify-between items-start">
 										<h4 className="text-green-400 font-medium">
@@ -187,7 +173,6 @@ export default function Home() {
 										</span>
 									</div>
 
-									{/* Pomjuice Project */}
 									<div className="bg-gray-900/30 border border-green-500/20 rounded-lg p-3 space-y-2">
 										<div className="flex items-center gap-2">
 											<div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -259,7 +244,6 @@ export default function Home() {
 									</div>
 								</div>
 
-								{/* Full Stack Developer - Previous Role */}
 								<div className="ml-4 border-l-2 border-blue-500/30 pl-4 space-y-2">
 									<div className="flex justify-between items-start">
 										<h4 className="text-blue-400 font-medium">
@@ -290,7 +274,6 @@ export default function Home() {
 								</div>
 							</div>
 
-							{/* Experience Item 2 - Freelance Fullstack */}
 							<div className="border-l-2 border-green-500/30 pl-4 space-y-2">
 								<div className="flex justify-between items-start">
 									<h3 className="text-white font-medium">
@@ -322,7 +305,6 @@ export default function Home() {
 								</div>
 							</div>
 
-							{/* Experience Item 3 - Frontend Freelance */}
 							<div className="border-l-2 border-purple-500/30 pl-4 space-y-2">
 								<div className="flex justify-between items-start">
 									<h3 className="text-white font-medium">
@@ -354,7 +336,6 @@ export default function Home() {
 								</div>
 							</div>
 
-							{/* Experience Item 4 - Internship */}
 							<div className="border-l-2 border-yellow-500/30 pl-4 space-y-2">
 								<div className="flex justify-between items-start">
 									<h3 className="text-white font-medium">
@@ -386,7 +367,6 @@ export default function Home() {
 								</div>
 							</div>
 
-							{/* Tech Stack Section */}
 							<div className="pt-4 border-t border-white/10">
 								<h4 className="text-sm font-medium text-white mb-4 flex items-center gap-2">
 									<div className="w-2 h-2 bg-orange-500 rounded-full"></div>
@@ -477,7 +457,6 @@ export default function Home() {
 										</div>
 									</div>
 
-									{/* APIs & Third-Party Integrations */}
 									<div>
 										<p className="text-xs text-yellow-400 font-medium mb-2">
 											APIs & Third-Party Integrations
