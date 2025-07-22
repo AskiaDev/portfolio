@@ -318,20 +318,24 @@ export default function Home() {
 									Freelance
 								</p>
 								<p className="text-xs text-gray-300 leading-relaxed">
-									Developed reusable React components,
-									integrated role-based authentication, and
-									built CRUD APIs for seamless data
-									management.
+									Assigned to create reusable components for
+									an Adult Social Media Platform using Ant
+									Design, Redux Toolkit, and TypeScript for
+									scalable state management and UI
+									consistency.
 								</p>
 								<div className="flex flex-wrap gap-1">
+									<span className="text-xs bg-gray-900/30 text-gray-300 px-2 py-1 rounded">
+										Next.js
+									</span>
 									<span className="text-xs bg-blue-900/30 text-blue-300 px-2 py-1 rounded">
-										React
+										TypeScript
 									</span>
 									<span className="text-xs bg-orange-900/30 text-orange-300 px-2 py-1 rounded">
-										Authentication
+										Ant Design
 									</span>
-									<span className="text-xs bg-red-900/30 text-red-300 px-2 py-1 rounded">
-										CRUD APIs
+									<span className="text-xs bg-purple-900/30 text-purple-300 px-2 py-1 rounded">
+										Redux Toolkit
 									</span>
 								</div>
 							</div>
@@ -362,6 +366,12 @@ export default function Home() {
 										GraphQL
 									</span>
 									<span className="text-xs bg-blue-900/30 text-blue-300 px-2 py-1 rounded">
+										React JS
+									</span>
+									<span className="text-xs bg-green-900/30 text-green-300 px-2 py-1 rounded">
+										Context API
+									</span>
+									<span className="text-xs bg-red-900/30 text-red-300 px-2 py-1 rounded">
 										AWS Amplify
 									</span>
 								</div>
