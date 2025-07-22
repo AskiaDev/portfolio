@@ -26,8 +26,7 @@ import * as THREE from "three";
 
 import lanyard from "./lanyard.png";
 import cardGLB from "./card.glb";
-// Add your custom image here
-import customCardImage from "./aj.jpeg"; // Replace with your image path
+import customCardImage from "./aj.JPEG";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
