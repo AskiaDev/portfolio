@@ -177,7 +177,7 @@ export default function Home() {
 										<div className="flex items-center gap-2">
 											<div className="w-2 h-2 bg-green-500 rounded-full"></div>
 											<h5 className="text-white font-medium text-sm">
-												Pomjuice - AI Bookkeeper
+												AI Bookkeeper
 												Assistant
 											</h5>
 										</div>
