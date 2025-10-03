@@ -9,8 +9,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
 	title: "Portfolio - Askia James",
-	description:
-		"Software Engineer portfolio showcasing projects and experience",
+	description: "Askia Dev",
 };
 
 export default function RootLayout({
