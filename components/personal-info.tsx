@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, GraduationCap, Briefcase, Mail } from "lucide-react";
 
-const techStack = {
+const techStack: Record<string, string[]> = {
 	Frontend: [
 		"HTML",
 		"CSS",
@@ -45,7 +45,7 @@ const techStack = {
 export function PersonalInfo() {
 	return (
 		<div className="w-full max-w-5xl mx-auto">
-			<div className="grid md:grid-cols-2 gap-8 items-center">
+			<div className="grid md:grid-cols-2 gap-8 items-start">
 				{/* Left Column - Image */}
 				<div className="relative">
 					<div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
@@ -60,13 +60,13 @@ export function PersonalInfo() {
 				</div>
 
 				{/* Right Column - Info */}
-				<div className="space-y-6">
+				<div className="space-y-5">
 					<div>
-						<h1 className="text-5xl md:text-6xl font-bold mb-4 text-balance">
-							Hi, I'm{" "}
+						<h1 className="text-5xl md:text-6xl font-bold mb-3 text-balance">
+							Hi, I&apos;m{" "}
 							<span className="text-primary">Askia James</span>
 						</h1>
-						<p className="text-xl text-muted-foreground mb-6 leading-relaxed">
+						<p className="text-lg text-muted-foreground leading-relaxed">
 							Full-Stack Developer based in the Philippines with
 							a degree in Computer Engineering. Building scalable
 							applications across AI/LLM, e-commerce, and
@@ -74,77 +74,90 @@ export function PersonalInfo() {
 						</p>
 					</div>
 
-					<Card className="p-6 space-y-4 bg-card/50 backdrop-blur">
-						<div className="flex items-start gap-3">
-							<MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-							<div>
-								<p className="font-medium">Location</p>
-								<p className="text-sm text-muted-foreground">
-									San Mateo Rizal, PH
-								</p>
+					{/* Info grid - 2x2 compact layout */}
+					<Card className="p-4 bg-card/50 backdrop-blur">
+						<div className="grid grid-cols-2 gap-3">
+							<div className="flex items-center gap-2.5">
+								<MapPin className="h-4 w-4 text-primary flex-shrink-0" />
+								<div className="min-w-0">
+									<p className="text-xs text-muted-foreground">
+										Location
+									</p>
+									<p className="text-sm font-medium truncate">
+										San Mateo Rizal, PH
+									</p>
+								</div>
 							</div>
-						</div>
 
-						<div className="flex items-start gap-3">
-							<GraduationCap className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-							<div>
-								<p className="font-medium">Education</p>
-								<p className="text-sm text-muted-foreground">
-									BS Computer Engineering
-								</p>
-								<p className="text-xs text-muted-foreground mt-1">
-									Eulogio &quot;Amang&quot; Rodriguez
-									Institute of Technology (Mar 2020 - Sept
-									2024)
-								</p>
+							<div className="flex items-center gap-2.5">
+								<Briefcase className="h-4 w-4 text-primary flex-shrink-0" />
+								<div className="min-w-0">
+									<p className="text-xs text-muted-foreground">
+										Current Role
+									</p>
+									<p className="text-sm font-medium truncate">
+										Full-Stack Developer
+									</p>
+								</div>
 							</div>
-						</div>
 
-						<div className="flex items-start gap-3">
-							<Briefcase className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-							<div>
-								<p className="font-medium">Current Role</p>
-								<p className="text-sm text-muted-foreground">
-									Full-Stack Developer
-								</p>
+							<div className="flex items-center gap-2.5">
+								<GraduationCap className="h-4 w-4 text-primary flex-shrink-0" />
+								<div className="min-w-0">
+									<p className="text-xs text-muted-foreground">
+										Education
+									</p>
+									<p className="text-sm font-medium leading-tight">
+										BS Computer Engineering
+									</p>
+									<p className="text-[11px] text-muted-foreground leading-tight">
+										EARIST (2020–2024)
+									</p>
+								</div>
 							</div>
-						</div>
 
-						<div className="flex items-start gap-3">
-							<Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-							<div>
-								<p className="font-medium">Email</p>
-								<p className="text-sm text-muted-foreground">
-									manjaresaskiajames23@gmail.com
-								</p>
+							<div className="flex items-center gap-2.5">
+								<Mail className="h-4 w-4 text-primary flex-shrink-0" />
+								<div className="min-w-0">
+									<p className="text-xs text-muted-foreground">
+										Email
+									</p>
+									<p className="text-sm font-medium truncate">
+										manjaresaskiajames23@gmail.com
+									</p>
+								</div>
 							</div>
 						</div>
 					</Card>
 
-					<div className="space-y-4">
-						<h3 className="text-lg font-semibold mb-3">
+					{/* Tech stack - compact inline layout */}
+					<div className="space-y-2.5">
+						<h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
 							Tools & Skills
 						</h3>
-						{Object.entries(techStack).map(
-							([category, skills]) => (
-								<div key={category}>
-									<p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
-										{category}
-									</p>
-									<div className="flex flex-wrap gap-2">
+						<div className="space-y-1.5">
+							{Object.entries(techStack).map(
+								([category, skills]) => (
+									<div
+										key={category}
+										className="flex flex-wrap items-center gap-1.5"
+									>
+										<span className="text-[11px] font-medium text-primary/70 uppercase tracking-wider w-[90px] flex-shrink-0">
+											{category}
+										</span>
 										{skills.map((skill) => (
 											<Badge
 												key={skill}
 												variant="secondary"
-												className="px-3 py-1"
+												className="px-2 py-0 text-xs h-6"
 											>
 												{skill}
 											</Badge>
 										))}
 									</div>
-								</div>
-							),
-						)}
+								),
+							)}
+						</div>
 					</div>
 				</div>
 			</div>
