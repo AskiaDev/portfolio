@@ -5,6 +5,11 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin } from "lucide-react";
 
+interface AchievementCategory {
+	category: string;
+	items: string[];
+}
+
 interface Experience {
 	id: string;
 	company: string;
@@ -12,118 +17,123 @@ interface Experience {
 	location: string;
 	startDate: string;
 	endDate: string;
-	description: string;
+	description?: string;
 	technologies: string[];
-	achievements: string[];
+	achievementCategories?: AchievementCategory[];
+	achievements?: string[];
 }
 
 const experiences: Experience[] = [
 	{
 		id: "1",
 		company: "TristynTech",
-		position: "Lead Software Engineer",
+		position: "Full-Stack Developer (AI/LLM, Node.js, TypeScript)",
 		location: "Remote",
-		startDate: "Apr 2025",
+		startDate: "Aug 2024",
 		endDate: "Present",
-		description:
-			"Leading development of an AI-powered bookkeeper assistant that helps business owners manage their finances. Implementing advanced prompt engineering and system design for optimal AI interactions with Plaid and QuickBooks integrations.",
 		technologies: [
 			"OpenAI API",
-			"Google Gen AI",
-			"Firebase",
+			"Anthropic",
 			"Next.js",
 			"TypeScript",
 			"Node.js",
-			"Shadcn",
-			"Prompt Engineering",
-			"System Design",
-			"Plaid Integration",
-			"QuickBooks API",
-			"Google Cloud Run",
+			"React",
+			"Firebase",
+			"PostgreSQL",
+			"MongoDB",
+			"Prisma",
+			"Plaid",
+			"QuickBooks",
+			"Stripe",
+			"Shopify",
+			"WooCommerce",
+			"Wix",
+			"Google Cloud",
 			"Docker",
-			"CI/CD Pipeline",
-			"Artifact Registry",
+			"PHP",
+			"MySQL",
 		],
-		achievements: [
-			"Architected AI-powered bookkeeping system with advanced prompt engineering",
-			"Integrated Plaid and QuickBooks APIs for seamless financial data management",
-			"Deployed scalable cloud infrastructure using Google Cloud Run and Docker",
+		achievementCategories: [
+			{
+				category: "AI & LLM Integration",
+				items: [
+					"Built 3+ AI-powered applications (financial assistant, home renovation planner, e-commerce agent) integrating OpenAI and Anthropic APIs, achieving 85% response accuracy and 40% faster onboarding",
+					"Implemented advanced prompt engineering and cost-estimation logic using localized data, improving accuracy by 85%",
+					"Developed automated content generation and SEO optimization tools increasing merchant content output by 5x and organic impressions by 30%",
+				],
+			},
+			{
+				category: "Full-Stack Development",
+				items: [
+					"Architected and deployed scalable applications across finance, geology, and e-commerce sectors using Next.js, React, and Node.js",
+					"Built backend APIs processing 2M+ geological data points from Google Cloud Storage, reducing fetch times by 55%",
+					"Built a custom ERP system for a telecom equipment company managing full-cycle operations (procurement, repair, inventory, distribution) across 9 user roles",
+					"Developed responsive interfaces and multi-step workflows improving user completion rates by 40%",
+				],
+			},
+			{
+				category: "E-commerce & API Integrations",
+				items: [
+					"Built Shopify, WooCommerce, and Wix plugins syncing products with AgentShop platform, supporting 5 merchants during beta",
+					"Integrated Plaid, Stripe and QuickBooks APIs for automated transaction categorization, streamlining bookkeeping workflows by 60%",
+					"Delivered storefront analytics (abandoned carts, product views, LLM-attributed revenue) enabling data-driven decisions 40% faster",
+				],
+			},
+			{
+				category: "Database & Performance Optimization",
+				items: [
+					"Integrated PostgreSQL/Prisma and MongoDB databases improving data retrieval speed by 30%",
+					"Optimized platform performance achieving 90+ Lighthouse scores and 40% faster page loads through code splitting and caching",
+					"Set up daily Browserbase workflows for real-time LLM querying and brand visibility tracking",
+					"Maintained MySQL schema (20+ related tables) with role-based permissions, PHP JSON API endpoints including async vendor polling, and a migration system for safe schema deployments",
+				],
+			},
 		],
 	},
 	{
 		id: "2",
-		company: "TristynTech",
-		position: "Fullstack Developer",
-		location: "Remote",
-		startDate: "Aug 2024",
-		endDate: "Apr 2025",
-		description:
-			"Developed a full-stack monitoring system for geologists to track seismic events. Built efficient backend APIs serving millions of data points from Google Storage.",
-		technologies: ["Full-stack", "Google Cloud", "SEO"],
-		achievements: [
-			"Built monitoring system handling millions of seismic data points",
-			"Optimized backend APIs for efficient data retrieval from Google Storage",
-			"Implemented SEO best practices for improved discoverability",
-		],
-	},
-	{
-		id: "3",
 		company: "Freelance",
 		position: "Fullstack Developer",
 		location: "Remote",
 		startDate: "Jan 2024",
 		endDate: "May 2024",
 		description:
-			"Built an Options Trading app with Next.js, TypeScript, and FastAPI. Integrated Supabase for auth, designed prediction algorithms, and implemented Cypress testing.",
+			"Developed and maintained an Options Trading app using Next.js TypeScript and FastAPI integrating Supabase for authentication and data storage.",
 		technologies: [
 			"Next.js",
+			"TypeScript",
+			"Python",
 			"FastAPI",
 			"Supabase",
-			"TypeScript",
 			"Cypress",
 		],
 		achievements: [
-			"Developed complete options trading application from scratch",
-			"Designed and implemented prediction algorithms for trading insights",
-			"Established comprehensive testing suite using Cypress",
+			"Developed and maintained an Options Trading app using Next.js TypeScript and FastAPI integrating Supabase for authentication and data storage to provide a seamless and secure user experience",
+			"Designed backend logic to predict options trading probabilities enhancing decision-making and collaborated with a former Udemy Project Manager to align with industry standards",
+			"Ensured reliable functionality by writing test cases with Cypress and streamlined real-time updates by connecting APIs on the frontend",
 		],
 	},
 	{
-		id: "4",
-		company: "Freelance",
-		position: "Frontend Developer",
-		location: "Remote",
-		startDate: "Aug 2023",
-		endDate: "May 2024",
-		description:
-			"Assigned to create reusable components for an Adult Social Media Platform using Ant Design, Redux Toolkit, and TypeScript for scalable state management and UI consistency.",
-		technologies: ["Next.js", "TypeScript", "Ant Design", "Redux Toolkit"],
-		achievements: [
-			"Created comprehensive component library for social media platform",
-			"Implemented scalable state management with Redux Toolkit",
-			"Ensured UI consistency across platform with Ant Design system",
-		],
-	},
-	{
-		id: "5",
+		id: "3",
 		company: "Lophils Inc.",
-		position: "Frontend Engineer Intern",
+		position: "Front End Engineer Intern",
 		location: "Remote",
-		startDate: "Sep 2023",
-		endDate: "Dec 2023",
+		startDate: "Jan 2024",
+		endDate: "May 2024",
 		description:
 			"Implemented AWS Cognito authentication, integrated GraphQL APIs with AWS Amplify, and built responsive interfaces for enhanced user experience.",
 		technologies: [
-			"AWS Cognito",
+			"ReactJS",
+			"AWS Lambda",
+			"DynamoDB",
 			"GraphQL",
-			"React JS",
-			"Context API",
+			"AWS Cognito",
 			"AWS Amplify",
 		],
 		achievements: [
-			"Implemented secure authentication system with AWS Cognito",
-			"Integrated GraphQL APIs with AWS Amplify for efficient data fetching",
-			"Built responsive interfaces improving overall user experience",
+			"Implemented authentication integration using AWS Cognito improving security features for user login and identity management within the app",
+			"Integrated client-side APIs using GraphQL and AWS Amplify to streamline data retrieval and ensure dynamic user interactions within the application",
+			"Collaborated with the development team to design and build responsive user interfaces improving the overall user experience across multiple platforms",
 		],
 	},
 ];
@@ -211,31 +221,64 @@ function ExperienceCard({
 						</div>
 					</div>
 
-					<p className="text-muted-foreground mb-4 leading-relaxed">
-						{experience.description}
-					</p>
+					{experience.description && (
+						<p className="text-muted-foreground mb-4 leading-relaxed">
+							{experience.description}
+						</p>
+					)}
 
 					<div className="space-y-4">
-						<div>
-							<h4 className="text-sm font-semibold mb-2 text-foreground">
-								Key Achievements:
-							</h4>
-							<ul className="space-y-2">
-								{experience.achievements.map(
-									(achievement, i) => (
-										<li
-											key={i}
-											className="flex items-start gap-2 text-sm text-muted-foreground"
-										>
-											<span className="text-primary mt-1">
-												•
-											</span>
-											<span>{achievement}</span>
-										</li>
+						{/* Categorized achievements (for TristynTech) */}
+						{experience.achievementCategories && (
+							<div className="space-y-4">
+								{experience.achievementCategories.map(
+									(cat) => (
+										<div key={cat.category}>
+											<h4 className="text-sm font-semibold mb-2 text-foreground">
+												{cat.category}
+											</h4>
+											<ul className="space-y-2">
+												{cat.items.map((item, i) => (
+													<li
+														key={i}
+														className="flex items-start gap-2 text-sm text-muted-foreground"
+													>
+														<span className="text-primary mt-1">
+															&bull;
+														</span>
+														<span>{item}</span>
+													</li>
+												))}
+											</ul>
+										</div>
 									),
 								)}
-							</ul>
-						</div>
+							</div>
+						)}
+
+						{/* Flat achievements */}
+						{experience.achievements && (
+							<div>
+								<h4 className="text-sm font-semibold mb-2 text-foreground">
+									Key Achievements:
+								</h4>
+								<ul className="space-y-2">
+									{experience.achievements.map(
+										(achievement, i) => (
+											<li
+												key={i}
+												className="flex items-start gap-2 text-sm text-muted-foreground"
+											>
+												<span className="text-primary mt-1">
+													&bull;
+												</span>
+												<span>{achievement}</span>
+											</li>
+										),
+									)}
+								</ul>
+							</div>
+						)}
 
 						<div>
 							<h4 className="text-sm font-semibold mb-2 text-foreground">

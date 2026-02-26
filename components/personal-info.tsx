@@ -2,6 +2,46 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, GraduationCap, Briefcase, Mail } from "lucide-react";
 
+const techStack = {
+	Frontend: [
+		"HTML",
+		"CSS",
+		"TailwindCSS",
+		"Next.js",
+		"TypeScript",
+		"React",
+		"Redux",
+		"MUI",
+		"Shadcn",
+		"React Native",
+	],
+	Backend: ["Node.js (Express)", "Python (FastAPI)", "PHP"],
+	API: ["REST", "GraphQL"],
+	Cloud: ["AWS", "Google BigQuery", "GCP"],
+	Database: ["Supabase", "PostgreSQL", "MySQL"],
+	Tools: [
+		"Git",
+		"Cypress",
+		"Docker",
+		"Postman",
+		"Jira",
+		"Trello",
+		"Notion",
+		"Cursor",
+	],
+	"AI & Integrations": [
+		"OpenAI API",
+		"Anthropic",
+		"QuickBooks",
+		"Plaid",
+		"Wix",
+		"Shopify",
+		"WooCommerce",
+		"Stripe",
+		"LemonSqueezy",
+	],
+};
+
 export function PersonalInfo() {
 	return (
 		<div className="w-full max-w-5xl mx-auto">
@@ -27,10 +67,10 @@ export function PersonalInfo() {
 							<span className="text-primary">Askia James</span>
 						</h1>
 						<p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-							Software Engineer residing in the Philippines with a
-							degree in Computer Engineering. Passionate about
-							Full Stack Development and building innovative web
-							applications that solve real-world problems.
+							Full-Stack Developer based in the Philippines with
+							a degree in Computer Engineering. Building scalable
+							applications across AI/LLM, e-commerce, and
+							enterprise systems.
 						</p>
 					</div>
 
@@ -40,7 +80,7 @@ export function PersonalInfo() {
 							<div>
 								<p className="font-medium">Location</p>
 								<p className="text-sm text-muted-foreground">
-									Philippines
+									San Mateo Rizal, PH
 								</p>
 							</div>
 						</div>
@@ -50,10 +90,12 @@ export function PersonalInfo() {
 							<div>
 								<p className="font-medium">Education</p>
 								<p className="text-sm text-muted-foreground">
-									BS Computer Engineering (2020-2024)
+									BS Computer Engineering
 								</p>
 								<p className="text-xs text-muted-foreground mt-1">
-									Graduated 2024
+									Eulogio &quot;Amang&quot; Rodriguez
+									Institute of Technology (Mar 2020 - Sept
+									2024)
 								</p>
 							</div>
 						</div>
@@ -63,7 +105,7 @@ export function PersonalInfo() {
 							<div>
 								<p className="font-medium">Current Role</p>
 								<p className="text-sm text-muted-foreground">
-									Lead Engineer
+									Full-Stack Developer
 								</p>
 							</div>
 						</div>
@@ -73,188 +115,36 @@ export function PersonalInfo() {
 							<div>
 								<p className="font-medium">Email</p>
 								<p className="text-sm text-muted-foreground">
-									itsmejamesmanjares@gmail.com
+									manjaresaskiajames23@gmail.com
 								</p>
 							</div>
 						</div>
 					</Card>
 
 					<div className="space-y-4">
-						<div>
-							<h3 className="text-lg font-semibold mb-3">
-								Current Tech Stack
-							</h3>
-							<div className="flex flex-wrap gap-2">
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									HTML
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									CSS
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									TailwindCSS
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Next.js
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									TypeScript
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									React
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Redux
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									MUI
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Node.js
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Go
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Python
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									FastAPI
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									REST
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									GraphQL
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Supabase
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									PostgreSQL
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									OpenAI API
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Prompt Engineering
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Cloud Vision API
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Plaid API
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									QuickBooks API
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									AWS
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Google BigQuery
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Google Cloud Run
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Artifact Registry
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Docker
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Git
-								</Badge>
-								<Badge
-									variant="secondary"
-									className="px-3 py-1"
-								>
-									Cypress
-								</Badge>
-							</div>
-						</div>
+						<h3 className="text-lg font-semibold mb-3">
+							Tools & Skills
+						</h3>
+						{Object.entries(techStack).map(
+							([category, skills]) => (
+								<div key={category}>
+									<p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
+										{category}
+									</p>
+									<div className="flex flex-wrap gap-2">
+										{skills.map((skill) => (
+											<Badge
+												key={skill}
+												variant="secondary"
+												className="px-3 py-1"
+											>
+												{skill}
+											</Badge>
+										))}
+									</div>
+								</div>
+							),
+						)}
 					</div>
 				</div>
 			</div>

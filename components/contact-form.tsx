@@ -57,7 +57,7 @@ export function ContactForm() {
 									Email
 								</p>
 								<p className="text-sm text-muted-foreground">
-									itsmejamesmanjares@gmail.com
+									manjaresaskiajames23@gmail.com
 								</p>
 							</div>
 						</div>
