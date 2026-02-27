@@ -9,27 +9,50 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Send, Github, Linkedin } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { goeyToast } from "goey-toast";
 
 export function ContactForm() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const { toast } = useToast();
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setIsSubmitting(true);
 
-		// Simulate form submission
-		await new Promise((resolve) => setTimeout(resolve, 1500));
+		const form = e.target as HTMLFormElement;
+		const formData = new FormData(form);
 
-		toast({
-			title: "Message sent!",
-			description:
-				"Thank you for reaching out. I'll get back to you soon.",
+		const sendEmail = async () => {
+			const res = await fetch("/api/contact", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					name: formData.get("name"),
+					email: formData.get("email"),
+					subject: formData.get("subject"),
+					message: formData.get("message"),
+				}),
+			});
+			if (!res.ok) throw new Error("Failed to send message");
+			return res.json();
+		};
+
+		const promise = sendEmail();
+
+		goeyToast.promise(promise, {
+			loading: "Sending message...",
+			success: "Message sent!",
+			error: "Failed to send message",
+			description: {
+				loading: "Please wait while your message is being delivered.",
+				success: "Thank you for reaching out. I'll get back to you soon.",
+				error: "Please try again later or email me directly.",
+			},
 		});
 
-		setIsSubmitting(false);
-		(e.target as HTMLFormElement).reset();
+		promise
+			.then(() => form.reset())
+			.catch(() => {})
+			.finally(() => setIsSubmitting(false));
 	};
 
 	return (
