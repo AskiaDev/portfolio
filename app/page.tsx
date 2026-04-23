@@ -5,36 +5,22 @@ import { Navigation } from "@/components/navigation";
 
 export default function PortfolioPage() {
 	return (
-		<div className="min-h-screen">
+		<div className="min-h-screen bg-ink text-bone relative">
 			<Navigation />
 
-			<main className="container mx-auto px-4 md:px-6 lg:px-8">
-				<section
-					id="about"
-					className="min-h-screen flex items-center py-20"
-				>
+			<main className="px-6 md:px-10 lg:px-16 pt-24 md:pt-28 max-w-[1680px] mx-auto">
+				<section id="about" className="pt-4 md:pt-8 pb-28 md:pb-36">
 					<PersonalInfo />
 				</section>
 
-				<section id="experience" className="min-h-screen py-20">
+				<section id="experience" className="py-28 md:py-36">
 					<WorkExperience />
 				</section>
 
-				<section
-					id="contact"
-					className="min-h-screen flex items-center py-20"
-				>
+				<section id="contact" className="pt-28 md:pt-36 pb-16 md:pb-24">
 					<ContactForm />
 				</section>
 			</main>
-
-			{/* <footer className="border-t border-border py-8">
-				<div className="container mx-auto px-4 md:px-6 lg:px-8">
-					<p className="text-center text-sm text-muted-foreground">
-						© {new Date().getFullYear()} All rights reserved.
-					</p>
-				</div>
-			</footer> */}
 		</div>
 	);
 }

@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin } from "lucide-react";
+import { motion } from "motion/react";
+
+const ease = [0.25, 1, 0.3, 1] as const;
 
 interface AchievementCategory {
 	category: string;
@@ -32,7 +31,7 @@ const experiences: Experience[] = [
 		startDate: "Aug 2024",
 		endDate: "Present",
 		technologies: [
-			"OpenAI API",
+			"OpenAI",
 			"Anthropic",
 			"Next.js",
 			"TypeScript",
@@ -48,44 +47,44 @@ const experiences: Experience[] = [
 			"Shopify",
 			"WooCommerce",
 			"Wix",
-			"Google Cloud",
+			"GCP",
 			"Docker",
 			"PHP",
 			"MySQL",
 		],
 		achievementCategories: [
 			{
-				category: "AI & LLM Integration",
+				category: "AI & LLM",
 				items: [
-					"Built 3+ AI-powered applications (financial assistant, home renovation planner, e-commerce agent) integrating OpenAI and Anthropic APIs, achieving 85% response accuracy and 40% faster onboarding",
-					"Implemented advanced prompt engineering and cost-estimation logic using localized data, improving accuracy by 85%",
-					"Developed automated content generation and SEO optimization tools increasing merchant content output by 5x and organic impressions by 30%",
+					"Built 3+ AI-powered applications (financial assistant, home renovation planner, e-commerce agent) integrating OpenAI and Anthropic APIs — achieving 85% response accuracy and 40% faster onboarding.",
+					"Implemented prompt engineering and cost-estimation logic using localized data, improving accuracy by 85%.",
+					"Developed automated content generation and SEO tooling increasing merchant content output by 5× and organic impressions by 30%.",
 				],
 			},
 			{
-				category: "Full-Stack Development",
+				category: "Full-Stack",
 				items: [
-					"Architected and deployed scalable applications across finance, geology, and e-commerce sectors using Next.js, React, and Node.js",
-					"Built backend APIs processing 2M+ geological data points from Google Cloud Storage, reducing fetch times by 55%",
-					"Built a custom ERP system for a telecom equipment company managing full-cycle operations (procurement, repair, inventory, distribution) across 9 user roles",
-					"Developed responsive interfaces and multi-step workflows improving user completion rates by 40%",
+					"Architected and deployed scalable applications across finance, geology, and e-commerce sectors using Next.js, React, and Node.js.",
+					"Built backend APIs processing 2M+ geological data points from Google Cloud Storage, reducing fetch times by 55%.",
+					"Built a custom ERP for a telecom equipment company managing full-cycle operations (procurement, repair, inventory, distribution) across 9 user roles.",
+					"Shipped responsive interfaces and multi-step workflows improving user completion rates by 40%.",
 				],
 			},
 			{
-				category: "E-commerce & API Integrations",
+				category: "Commerce",
 				items: [
-					"Built Shopify, WooCommerce, and Wix plugins syncing products with AgentShop platform, supporting 5 merchants during beta",
-					"Integrated Plaid, Stripe and QuickBooks APIs for automated transaction categorization, streamlining bookkeeping workflows by 60%",
-					"Delivered storefront analytics (abandoned carts, product views, LLM-attributed revenue) enabling data-driven decisions 40% faster",
+					"Built Shopify, WooCommerce, and Wix plugins syncing products with the AgentShop platform, supporting 5 merchants during beta.",
+					"Integrated Plaid, Stripe, and QuickBooks APIs for automated transaction categorization — streamlined bookkeeping workflows by 60%.",
+					"Delivered storefront analytics (abandoned carts, product views, LLM-attributed revenue) enabling data-driven decisions 40% faster.",
 				],
 			},
 			{
-				category: "Database & Performance Optimization",
+				category: "Data & Perf",
 				items: [
-					"Integrated PostgreSQL/Prisma and MongoDB databases improving data retrieval speed by 30%",
-					"Optimized platform performance achieving 90+ Lighthouse scores and 40% faster page loads through code splitting and caching",
-					"Set up daily Browserbase workflows for real-time LLM querying and brand visibility tracking",
-					"Maintained MySQL schema (20+ related tables) with role-based permissions, PHP JSON API endpoints including async vendor polling, and a migration system for safe schema deployments",
+					"Integrated PostgreSQL/Prisma and MongoDB, improving retrieval speed by 30%.",
+					"Hit 90+ Lighthouse scores and 40% faster page loads via code splitting and caching.",
+					"Ran daily Browserbase workflows for real-time LLM querying and brand visibility tracking.",
+					"Maintained a MySQL schema (20+ related tables) with role-based permissions, PHP JSON API endpoints including async vendor polling, and a migration system for safe schema deployments.",
 				],
 			},
 		],
@@ -93,12 +92,12 @@ const experiences: Experience[] = [
 	{
 		id: "2",
 		company: "Freelance",
-		position: "Fullstack Developer",
+		position: "Full-Stack Developer",
 		location: "Remote",
 		startDate: "Jan 2024",
 		endDate: "May 2024",
 		description:
-			"Developed and maintained an Options Trading app using Next.js TypeScript and FastAPI integrating Supabase for authentication and data storage.",
+			"Designed and shipped an options-trading application using Next.js, TypeScript, and FastAPI — with Supabase auth and storage.",
 		technologies: [
 			"Next.js",
 			"TypeScript",
@@ -108,222 +107,171 @@ const experiences: Experience[] = [
 			"Cypress",
 		],
 		achievements: [
-			"Developed and maintained an Options Trading app using Next.js TypeScript and FastAPI integrating Supabase for authentication and data storage to provide a seamless and secure user experience",
-			"Designed backend logic to predict options trading probabilities enhancing decision-making and collaborated with a former Udemy Project Manager to align with industry standards",
-			"Ensured reliable functionality by writing test cases with Cypress and streamlined real-time updates by connecting APIs on the frontend",
+			"Delivered end-to-end: Next.js/TypeScript frontend with FastAPI services and Supabase-backed auth — secure, seamless user experience.",
+			"Designed backend logic to predict options-trading probabilities; collaborated with a former Udemy Project Manager to align with industry standards.",
+			"Guarded reliability with Cypress test cases and streamlined real-time updates by wiring APIs directly into the frontend.",
 		],
 	},
 	{
 		id: "3",
 		company: "Lophils Inc.",
-		position: "Front End Engineer Intern",
+		position: "Front-End Engineer — Intern",
 		location: "Remote",
 		startDate: "Jan 2024",
 		endDate: "May 2024",
 		description:
-			"Implemented AWS Cognito authentication, integrated GraphQL APIs with AWS Amplify, and built responsive interfaces for enhanced user experience.",
+			"Implemented AWS Cognito auth, integrated GraphQL via AWS Amplify, and built responsive interfaces for enhanced user experience.",
 		technologies: [
-			"ReactJS",
+			"React",
 			"AWS Lambda",
 			"DynamoDB",
 			"GraphQL",
-			"AWS Cognito",
-			"AWS Amplify",
+			"Cognito",
+			"Amplify",
 		],
 		achievements: [
-			"Implemented authentication integration using AWS Cognito improving security features for user login and identity management within the app",
-			"Integrated client-side APIs using GraphQL and AWS Amplify to streamline data retrieval and ensure dynamic user interactions within the application",
-			"Collaborated with the development team to design and build responsive user interfaces improving the overall user experience across multiple platforms",
+			"Implemented AWS Cognito authentication — improving login security and identity management across the app.",
+			"Integrated client-side APIs via GraphQL and AWS Amplify — streamlined data retrieval and dynamic interactions.",
+			"Collaborated with the dev team on responsive UIs — lifting the overall cross-platform experience.",
 		],
 	},
 ];
 
-function ExperienceCard({
+function EntryCard({
 	experience,
 	index,
 }: {
 	experience: Experience;
 	index: number;
 }) {
-	const [isVisible, setIsVisible] = useState(false);
-	const cardRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				if (entry.isIntersecting) {
-					setIsVisible(true);
-				}
-			},
-			{
-				threshold: 0.2,
-				rootMargin: "0px 0px -100px 0px",
-			},
-		);
-
-		if (cardRef.current) {
-			observer.observe(cardRef.current);
-		}
-
-		return () => {
-			if (cardRef.current) {
-				observer.unobserve(cardRef.current);
-			}
-		};
-	}, []);
-
 	return (
-		<div
-			ref={cardRef}
-			className={`relative transition-all duration-700 ${
-				isVisible
-					? "opacity-100 translate-y-0"
-					: "opacity-0 translate-y-8"
-			}`}
-			style={{ transitionDelay: `${index * 150}ms` }}
+		<motion.article
+			initial={{ opacity: 0, y: 32 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, margin: "-120px" }}
+			transition={{ duration: 0.8, ease }}
+			className="group relative grid grid-cols-12 gap-x-4 md:gap-x-8 py-12 md:py-16 border-t border-hairline"
 		>
-			{/* Timeline connector */}
-			{index < experiences.length - 1 && (
-				<div className="absolute left-6 top-16 bottom-0 w-0.5 bg-gradient-to-b from-primary to-transparent" />
-			)}
-
-			<div className="flex gap-6">
-				{/* Timeline dot */}
-				<div className="relative flex-shrink-0">
-					<div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-						<div className="w-6 h-6 rounded-full bg-primary" />
-					</div>
+			{/* left — numbering + meta */}
+			<div className="col-span-12 md:col-span-3 lg:col-span-3 space-y-3 mb-6 md:mb-0">
+				<p className="mono-label text-acid">
+					§ {String(index + 1).padStart(2, "0")}
+				</p>
+				<div className="mono-meta space-y-1">
+					<p>
+						{experience.startDate} → {experience.endDate}
+					</p>
+					<p>{experience.location}</p>
 				</div>
+			</div>
 
-				{/* Content */}
-				<Card className="flex-1 p-6 hover:shadow-lg transition-shadow duration-300 bg-card/50 backdrop-blur">
-					<div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-						<div>
-							<h3 className="text-2xl font-bold text-foreground mb-1">
-								{experience.position}
-							</h3>
-							<p className="text-lg font-semibold text-primary">
-								{experience.company}
-							</p>
-						</div>
-						<div className="flex flex-col gap-2 text-sm text-muted-foreground">
-							<div className="flex items-center gap-2">
-								<Calendar className="h-4 w-4" />
-								<span>
-									{experience.startDate} -{" "}
-									{experience.endDate}
-								</span>
-							</div>
-							<div className="flex items-center gap-2">
-								<MapPin className="h-4 w-4" />
-								<span>{experience.location}</span>
-							</div>
-						</div>
-					</div>
+			{/* right — editorial entry */}
+			<div className="col-span-12 md:col-span-9 lg:col-span-9">
+				<h3 className="display text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-[-0.02em] mb-3 transition-all duration-500 group-hover:tracking-[0.01em] group-hover:text-acid">
+					{experience.company}
+				</h3>
+				<p className="text-bone-dim text-base md:text-lg mb-8 max-w-[52ch]">
+					{experience.position}
+				</p>
 
-					{experience.description && (
-						<p className="text-muted-foreground mb-4 leading-relaxed">
-							{experience.description}
-						</p>
-					)}
+				{experience.description && (
+					<p className="prose-ed text-bone-dim mb-8 max-w-[58ch]">
+						{experience.description}
+					</p>
+				)}
 
-					<div className="space-y-4">
-						{/* Categorized achievements (for TristynTech) */}
-						{experience.achievementCategories && (
-							<div className="space-y-4">
-								{experience.achievementCategories.map(
-									(cat) => (
-										<div key={cat.category}>
-											<h4 className="text-sm font-semibold mb-2 text-foreground">
-												{cat.category}
-											</h4>
-											<ul className="space-y-2">
-												{cat.items.map((item, i) => (
-													<li
-														key={i}
-														className="flex items-start gap-2 text-sm text-muted-foreground"
-													>
-														<span className="text-primary mt-1">
-															&bull;
-														</span>
-														<span>{item}</span>
-													</li>
-												))}
-											</ul>
-										</div>
-									),
-								)}
-							</div>
-						)}
-
-						{/* Flat achievements */}
-						{experience.achievements && (
-							<div>
-								<h4 className="text-sm font-semibold mb-2 text-foreground">
-									Key Achievements:
-								</h4>
-								<ul className="space-y-2">
-									{experience.achievements.map(
-										(achievement, i) => (
-											<li
-												key={i}
-												className="flex items-start gap-2 text-sm text-muted-foreground"
-											>
-												<span className="text-primary mt-1">
-													&bull;
-												</span>
-												<span>{achievement}</span>
-											</li>
-										),
-									)}
+				{experience.achievementCategories && (
+					<div className="grid md:grid-cols-2 gap-x-8 gap-y-10 mb-10">
+						{experience.achievementCategories.map((cat, i) => (
+							<div key={cat.category}>
+								<div className="flex items-baseline gap-2 mb-4">
+									<span className="mono-label">
+										↳ {String(i + 1).padStart(2, "0")}
+									</span>
+									<h4 className="display-italic text-3xl text-bone">
+										{cat.category}
+									</h4>
+								</div>
+								<ul className="space-y-3">
+									{cat.items.map((item, j) => (
+										<li
+											key={j}
+											className="text-bone-dim text-[15px] leading-relaxed flex gap-3"
+										>
+											<span className="text-acid mt-[7px] text-[10px] flex-shrink-0">
+												▸
+											</span>
+											<span>{item}</span>
+										</li>
+									))}
 								</ul>
 							</div>
-						)}
-
-						<div>
-							<h4 className="text-sm font-semibold mb-2 text-foreground">
-								Technologies:
-							</h4>
-							<div className="flex flex-wrap gap-2">
-								{experience.technologies.map((tech) => (
-									<Badge
-										key={tech}
-										variant="outline"
-										className="text-xs"
-									>
-										{tech}
-									</Badge>
-								))}
-							</div>
-						</div>
+						))}
 					</div>
-				</Card>
+				)}
+
+				{experience.achievements && (
+					<div className="mb-10">
+						<div className="flex items-baseline gap-2 mb-4">
+							<span className="mono-label">↳ notes</span>
+						</div>
+						<ul className="space-y-3">
+							{experience.achievements.map((a, j) => (
+								<li
+									key={j}
+									className="text-bone-dim text-[15px] leading-relaxed flex gap-3 max-w-[62ch]"
+								>
+									<span className="text-acid mt-[7px] text-[10px] flex-shrink-0">
+										▸
+									</span>
+									<span>{a}</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				)}
+
+				<div className="pt-6 border-t border-hairline/70">
+					<p className="mono-label mb-3">— tech</p>
+					<p className="font-mono text-[13px] text-bone-dim leading-relaxed tracking-tight">
+						{experience.technologies.join(" · ")}
+					</p>
+				</div>
 			</div>
-		</div>
+		</motion.article>
 	);
 }
 
 export function WorkExperience() {
 	return (
-		<div className="w-full max-w-5xl mx-auto">
-			<div className="mb-12">
-				<h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-					Work <span className="text-primary">Experience</span>
+		<div className="w-full">
+			<div className="flex items-center justify-between mono-meta pb-8 border-b border-hairline">
+				<span>— IDX.02 / SELECTED WORK</span>
+				<span className="hidden sm:inline">
+					{experiences.length.toString().padStart(2, "0")} ENTRIES
+				</span>
+				<span>2023 — NOW</span>
+			</div>
+
+			<div className="mt-14 md:mt-20 mb-10">
+				<h2 className="display text-7xl md:text-8xl lg:text-[11rem] leading-[0.85] tracking-[-0.04em]">
+					<span className="block">Selected</span>
+					<span className="block italic text-acid">Work.</span>
 				</h2>
-				<p className="text-lg text-muted-foreground leading-relaxed">
-					A journey through my professional career, showcasing growth
-					and achievements.
+				<p className="prose-ed mt-8 text-lg text-bone-dim max-w-[46ch]">
+					Three entries, in reverse chronology. Each built with
+					people I respect, for products shipping to real users.
 				</p>
 			</div>
 
-			<div className="space-y-8">
-				{experiences.map((experience, index) => (
-					<ExperienceCard
-						key={experience.id}
-						experience={experience}
-						index={index}
-					/>
+			<div>
+				{experiences.map((e, i) => (
+					<EntryCard key={e.id} experience={e} index={i} />
 				))}
+				<div className="border-t border-hairline pt-6 flex items-baseline justify-between">
+					<span className="mono-label">— end of section</span>
+					<span className="mono-meta">FIN. / IDX.02</span>
+				</div>
 			</div>
 		</div>
 	);
