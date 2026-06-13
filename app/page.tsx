@@ -1,26 +1,23 @@
-import { PersonalInfo } from "@/components/personal-info";
+import { ResumeRail } from "@/components/resume-rail";
 import { WorkExperience } from "@/components/work-experience";
-import { ContactForm } from "@/components/contact-form";
-import { Navigation } from "@/components/navigation";
+import { Skills } from "@/components/skills";
 
 export default function PortfolioPage() {
 	return (
-		<div className="min-h-screen bg-ink text-bone relative">
-			<Navigation />
+		<div className="min-h-screen bg-paper text-ink">
+			<div className="mx-auto w-full max-w-[1440px] lg:grid lg:grid-cols-[20rem_minmax(0,1fr)] xl:grid-cols-[23rem_minmax(0,1fr)]">
+				<ResumeRail />
 
-			<main className="px-6 md:px-10 lg:px-16 pt-24 md:pt-28 max-w-[1680px] mx-auto">
-				<section id="about" className="pt-4 md:pt-8 pb-28 md:pb-36">
-					<PersonalInfo />
-				</section>
+				<main className="px-6 pb-28 pt-12 sm:px-10 lg:px-16 lg:pt-24 xl:px-24">
+					<section id="experience" className="scroll-mt-8">
+						<WorkExperience />
+					</section>
 
-				<section id="experience" className="py-28 md:py-36">
-					<WorkExperience />
-				</section>
-
-				<section id="contact" className="pt-28 md:pt-36 pb-16 md:pb-24">
-					<ContactForm />
-				</section>
-			</main>
+					<section id="skills" className="scroll-mt-8 pt-20 md:pt-28">
+						<Skills />
+					</section>
+				</main>
+			</div>
 		</div>
 	);
 }

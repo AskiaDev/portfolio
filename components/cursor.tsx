@@ -36,7 +36,7 @@ export function Cursor() {
       const hot = t.closest(
         'a, button, [role="button"], input, textarea, [data-interactive]'
       );
-      targetScale = hot ? 3.8 : 1;
+      targetScale = hot ? 2.6 : 1;
     };
 
     const loop = () => {
@@ -50,7 +50,7 @@ export function Cursor() {
         dotRef.current.style.transform = `translate3d(${pos.x - 3}px, ${pos.y - 3}px, 0)`;
       }
       if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ringPos.x - 16}px, ${ringPos.y - 16}px, 0) scale(${scale})`;
+        ringRef.current.style.transform = `translate3d(${ringPos.x - 15}px, ${ringPos.y - 15}px, 0) scale(${scale})`;
       }
       raf = requestAnimationFrame(loop);
     };
@@ -78,13 +78,13 @@ export function Cursor() {
           position: "fixed",
           top: 0,
           left: 0,
-          width: 32,
-          height: 32,
+          width: 30,
+          height: 30,
           borderRadius: 999,
-          border: "1px solid var(--accent)",
+          border: "1.5px solid var(--accent)",
+          opacity: 0.65,
           pointerEvents: "none",
           zIndex: 9999,
-          mixBlendMode: "difference",
           willChange: "transform",
         }}
       />
@@ -101,7 +101,6 @@ export function Cursor() {
           background: "var(--accent)",
           pointerEvents: "none",
           zIndex: 10000,
-          mixBlendMode: "difference",
           willChange: "transform",
         }}
       />

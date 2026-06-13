@@ -2,66 +2,63 @@
 @import "tw-animate-css";
 
 /* ──────────────────────────────────────────────────────────
-   INDEX 001 — palette
-   warm near-black + bone + acid green
-   OKLCH for perceptual consistency
+   Palette — warm paper · ink · single deep accent
+   A clean, professional light system. OKLCH for consistency.
    ────────────────────────────────────────────────────────── */
 
 :root {
-  /* core palette */
-  --ink: oklch(0.13 0.008 70);           /* warm near-black */
-  --paper: oklch(0.17 0.008 70);         /* +1 surface */
-  --paper-2: oklch(0.21 0.008 70);       /* +2 surface */
-  --hairline: oklch(0.28 0.008 70);      /* borders */
-  --hairline-strong: oklch(0.38 0.008 70);
-  --haze: oklch(0.60 0.010 80);          /* muted text */
-  --bone: oklch(0.95 0.012 90);          /* primary text */
-  --bone-dim: oklch(0.80 0.010 80);      /* secondary text */
-  --accent: oklch(0.92 0.22 130);        /* acid green */
-  --accent-dim: oklch(0.82 0.20 130);
-  --danger: oklch(0.70 0.22 25);
+  /* surfaces */
+  --paper: oklch(0.987 0.004 85);        /* warm near-white background */
+  --paper-2: oklch(0.965 0.005 85);      /* raised surface / cards */
+  --paper-3: oklch(0.945 0.006 85);      /* pressed / hover surface */
 
-  --radius: 2px;
+  /* ink (warm near-black) */
+  --ink: oklch(0.23 0.012 55);           /* primary text */
+  --ink-soft: oklch(0.40 0.010 55);      /* secondary text */
+  --haze: oklch(0.56 0.008 60);          /* meta / muted text */
 
-  /* shadcn token remap — existing UI primitives keep working */
-  --background: var(--ink);
-  --foreground: var(--bone);
+  /* lines */
+  --hairline: oklch(0.90 0.005 80);
+  --hairline-strong: oklch(0.82 0.006 80);
+
+  /* accent — considered deep indigo-blue, used sparingly */
+  --accent: oklch(0.47 0.135 264);
+  --accent-strong: oklch(0.40 0.14 264);
+  --accent-soft: oklch(0.93 0.035 264);
+
+  /* functional */
+  --positive: oklch(0.62 0.15 150);      /* "available" status dot */
+
+  --radius: 4px;
+
+  /* shadcn token remap — existing ui/* primitives keep working */
+  --background: var(--paper);
+  --foreground: var(--ink);
   --card: var(--paper);
-  --card-foreground: var(--bone);
+  --card-foreground: var(--ink);
   --popover: var(--paper);
-  --popover-foreground: var(--bone);
-  --primary: var(--accent);
-  --primary-foreground: var(--ink);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
   --secondary: var(--paper-2);
-  --secondary-foreground: var(--bone);
-  --muted: var(--paper);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-2);
   --muted-foreground: var(--haze);
-  --accent-foreground: var(--ink);
-  --destructive: var(--danger);
-  --destructive-foreground: var(--bone);
+  --accent-foreground: var(--paper);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: var(--paper);
   --border: var(--hairline);
   --input: var(--hairline);
   --ring: var(--accent);
 
-  --chart-1: var(--accent);
-  --chart-2: oklch(0.80 0.18 160);
-  --chart-3: oklch(0.75 0.15 100);
-  --chart-4: oklch(0.70 0.15 60);
-  --chart-5: oklch(0.60 0.12 40);
-
   --sidebar: var(--paper);
-  --sidebar-foreground: var(--bone);
+  --sidebar-foreground: var(--ink);
   --sidebar-primary: var(--accent);
-  --sidebar-primary-foreground: var(--ink);
+  --sidebar-primary-foreground: var(--paper);
   --sidebar-accent: var(--paper-2);
-  --sidebar-accent-foreground: var(--bone);
+  --sidebar-accent-foreground: var(--ink);
   --sidebar-border: var(--hairline);
   --sidebar-ring: var(--accent);
-}
-
-/* locked dark mode — class is forced on <html> in layout */
-.dark {
-  color-scheme: dark;
 }
 
 @theme inline {
@@ -70,7 +67,7 @@
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-fraunces);
 
-  /* colors */
+  /* shadcn colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -83,7 +80,6 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -91,27 +87,24 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* custom tokens exposed to Tailwind */
-  --color-ink: var(--ink);
+  /* custom tokens exposed to Tailwind utilities */
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-haze: var(--haze);
   --color-hairline: var(--hairline);
   --color-hairline-strong: var(--hairline-strong);
-  --color-haze: var(--haze);
-  --color-bone: var(--bone);
-  --color-bone-dim: var(--bone-dim);
-  --color-acid: var(--accent);
-  --color-acid-dim: var(--accent-dim);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-positive: var(--positive);
 
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: 2px;
-  --radius-md: 2px;
-  --radius-lg: 2px;
-  --radius-xl: 4px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 10px;
 
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
@@ -132,14 +125,15 @@
 
   html {
     scroll-behavior: smooth;
-    background: var(--ink);
-    color: var(--bone);
-    font-feature-settings: "ss01", "ss02", "cv11";
+    background: var(--paper);
+    color: var(--ink);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background: var(--ink);
-    color: var(--bone);
+    background: var(--paper);
+    color: var(--ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -147,116 +141,85 @@
     overflow-x: hidden;
   }
 
-  /* selection — acid green highlight on ink */
   ::selection {
-    background: var(--accent);
-    color: var(--ink);
+    background: var(--accent-soft);
+    color: var(--accent-strong);
   }
 
-  /* custom scrollbar — thin mono-esque */
+  /* thin, restrained scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--ink);
+    background: var(--paper);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--hairline);
-    border: 3px solid var(--ink);
-    border-radius: 0;
+    background: var(--hairline-strong);
+    border: 3px solid var(--paper);
+    border-radius: 999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--hairline-strong);
+    background: var(--haze);
   }
 
-  /* focus — acid outline, chunky offset */
   :focus-visible {
     outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 1px;
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 
-  /* anchor nav offset — accounts for fixed masthead */
   section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 2rem;
   }
 }
 
 /* ──────────────────────────────────────────────────────────
-   Utilities
+   Typography utilities
    ────────────────────────────────────────────────────────── */
 
-/* grain overlay — sits above content, ignores pointer */
-.grain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 100;
-  opacity: 0.04;
-  mix-blend-mode: overlay;
-}
-
-/* hide default cursor on fine-pointer devices (custom cursor takes over) */
-@media (pointer: fine) {
-  html.has-custom-cursor,
-  html.has-custom-cursor * {
-    cursor: none !important;
-  }
-}
-
-/* display type helper */
-.display {
+.font-display {
   font-family: var(--font-display);
   font-feature-settings: "ss01", "liga", "dlig";
-  line-height: 0.88;
-  letter-spacing: -0.03em;
-}
-
-.display-italic {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-feature-settings: "ss01", "liga", "dlig", "swsh";
-  line-height: 0.88;
   letter-spacing: -0.02em;
 }
 
-/* mono label — tiny uppercase with letter-spacing */
-.mono-label {
+/* tiny uppercase mono label */
+.label {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: var(--haze);
   font-weight: 500;
 }
 
-.mono-meta {
+.mono {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   color: var(--haze);
 }
 
-/* editorial paragraph */
-.prose-ed {
-  max-width: 62ch;
-  color: var(--bone-dim);
-  font-size: 1rem;
-  line-height: 1.65;
+.prose-body {
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 64ch;
 }
 
-/* underline link animation */
-.link-ed {
+/* hairline divider */
+.hairline {
+  border-top: 1px solid var(--hairline);
+}
+
+/* underline-on-rest, sweep-out-on-hover link */
+.link-sweep {
   position: relative;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.25em;
-  color: var(--bone);
+  color: var(--ink);
   text-decoration: none;
   transition: color 200ms ease;
 }
-.link-ed::after {
+.link-sweep::after {
   content: "";
   position: absolute;
   left: 0;
@@ -266,61 +229,34 @@
   background: currentColor;
   transform-origin: right center;
   transform: scaleX(1);
-  transition: transform 380ms cubic-bezier(0.7, 0, 0.3, 1);
+  transition: transform 420ms cubic-bezier(0.7, 0, 0.3, 1);
 }
-.link-ed:hover::after {
+.link-sweep:hover {
+  color: var(--accent);
+}
+.link-sweep:hover::after {
   transform-origin: left center;
   transform: scaleX(0);
-  animation: link-sweep 500ms cubic-bezier(0.7, 0, 0.3, 1) forwards;
 }
-@keyframes link-sweep {
-  0% {
-    transform-origin: right center;
-    transform: scaleX(1);
-  }
-  50% {
-    transform-origin: right center;
-    transform: scaleX(0);
-  }
-  51% {
-    transform-origin: left center;
-    transform: scaleX(0);
-  }
-  100% {
-    transform-origin: left center;
-    transform: scaleX(1);
+
+/* grain overlay — subtle paper texture on light bg */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+/* hide native cursor on fine-pointer devices (custom cursor takes over) */
+@media (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
   }
 }
 
-/* hairline divider */
-.hairline {
-  border-top: 1px solid var(--hairline);
-}
-
-/* input underline style — used in colophon */
-.input-ed {
-  width: 100%;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--hairline);
-  padding: 0.75rem 0;
-  color: var(--bone);
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 220ms ease;
-}
-.input-ed::placeholder {
-  color: var(--haze);
-}
-.input-ed:focus {
-  border-bottom-color: var(--accent);
-}
-.input-ed:focus-visible {
-  outline: none;
-}
-
-/* reduced motion respect */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
