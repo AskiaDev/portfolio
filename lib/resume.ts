@@ -89,6 +89,7 @@ export const experiences: Experience[] = [
 			"Stripe",
 			"Shopify",
 			"WooCommerce",
+			"Wix",
 			"GCP",
 			"Docker",
 			"PHP",
@@ -98,33 +99,29 @@ export const experiences: Experience[] = [
 			{
 				category: "AI & LLM",
 				items: [
-					"Built 3+ AI-powered applications (financial assistant, home-renovation planner, e-commerce agent) integrating OpenAI and Anthropic APIs — 85% response accuracy and 40% faster onboarding.",
-					"Engineered prompt and cost-estimation logic on localized data, improving accuracy by 85%.",
-					"Shipped automated content generation and SEO tooling, lifting merchant content output 5× and organic impressions 30%.",
+					"Developed AI-powered workflows using OpenAI and Anthropic APIs, including prompt pipelines, structured outputs, cost-estimation logic, and localized data handling.",
+					"Built and shipped full-stack applications across AI automation, e-commerce, finance, and internal operations using Next.js, TypeScript, React, Node.js, and PostgreSQL.",
 				],
 			},
 			{
 				category: "Full-Stack",
 				items: [
-					"Architected and deployed scalable apps across finance, geology, and e-commerce with Next.js, React, and Node.js.",
-					"Built backend APIs processing 2M+ geological data points from Google Cloud Storage, cutting fetch times 55%.",
-					"Delivered a custom ERP for a telecom-equipment company spanning procurement, repair, inventory, and distribution across 9 user roles.",
+					"Built backend APIs processing 2M+ geological data points from Google Cloud Storage, reducing fetch times by 55% through optimized data access and caching.",
+					"Delivered a custom ERP system for a telecom equipment company covering procurement, repair, inventory, distribution, role-based access, and vendor polling workflows.",
 				],
 			},
 			{
 				category: "Commerce",
 				items: [
-					"Built Shopify, WooCommerce, and Wix plugins syncing products with the AgentShop platform, supporting 5 merchants in beta.",
-					"Integrated Plaid, Stripe, and QuickBooks for automated transaction categorization — streamlining bookkeeping 60%.",
-					"Delivered storefront analytics (abandoned carts, product views, LLM-attributed revenue) for 40% faster decisions.",
+					"Built Shopify, WooCommerce, and Wix integrations for syncing merchant products into AgentShop, supporting 5 merchants during beta.",
+					"Integrated Plaid, Stripe, and QuickBooks APIs for transaction categorization, payment workflows, and automated bookkeeping.",
 				],
 			},
 			{
 				category: "Data & Performance",
 				items: [
-					"Integrated PostgreSQL/Prisma and MongoDB, improving retrieval speed 30%.",
-					"Hit 90+ Lighthouse scores and 40% faster page loads via code splitting and caching.",
-					"Maintained a 20+ table MySQL schema with role-based permissions, PHP JSON APIs, and a safe migration system.",
+					"Improved frontend performance with code splitting, caching, and responsive UI work, achieving 90+ Lighthouse scores on key pages.",
+					"Maintained PostgreSQL/Prisma, MongoDB, and MySQL-backed systems, including schema design, permissions, migrations, and API integrations.",
 				],
 			},
 		],
